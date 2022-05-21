@@ -32,3 +32,5 @@ const searchAlbumsAPI = async (artist) => {
 };
 
 export default searchAlbumsAPI;
+
+// Pull Request
