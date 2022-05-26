@@ -27,9 +27,17 @@ class Header extends React.Component {
             <div>
 
               <h3 data-testid="header-user-name">{user}</h3>
-              <Link data-testid="link-to-search" to="/search" />
-              <Link data-testid="link-to-favorites" to="/favorites" />
-              <Link data-testid="link-to-profile" to="/profile" />
+              <Link data-testid="link-to-search" to="/search">
+                <button type="button">Search</button>
+              </Link>
+
+              <Link data-testid="link-to-favorites" to="/favorites">
+                <button type="button">Favorites</button>
+              </Link>
+
+              <Link data-testid="link-to-profile" to="/profile">
+                <button type="button">Profile</button>
+              </Link>
 
             </div>
           )}
