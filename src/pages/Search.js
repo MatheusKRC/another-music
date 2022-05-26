@@ -73,17 +73,13 @@ class Search extends React.Component {
                   data-testid={ `link-to-album-${music.collectionId}` }
                   to={ `/album/${music.collectionId}` }
                 >
-                  <button
-                    type="button"
-                  >
-                    Ir Para O Álbum
-                  </button>
+                  <img
+                    src={ music.artworkUrl100 }
+                    alt={ music.collectionName }
+                  />
 
                 </Link>
-                <img
-                  src={ `url-to-${music.artworkUrl100}` }
-                  alt={ music.collectionName }
-                />
+
               </main>
             ))}
           </div>) : (<h1>Nenhum álbum foi encontrado</h1>)}
