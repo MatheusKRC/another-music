@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import Header from '../Components/Header';
 import MusicCard from '../Components/MusicCard';
 import getMusics from '../services/musicsAPI';
+import Loading from './Loading';
 
 class Album extends React.Component {
   state = {
     musics: [],
     collection: [],
+    loading: false,
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     this.pushMusic();
   }
 
@@ -23,12 +25,13 @@ class Album extends React.Component {
   }
 
   render() {
-    const { collection, musics } = this.state;
+    const { collection, musics, loading } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
         {musics.length > 0 && (
           <div>
+            {loading && <Loading />}
             <h3 data-testid="artist-name">
               {musics[0].artistName}
             </h3>
