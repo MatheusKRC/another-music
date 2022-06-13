@@ -4,16 +4,28 @@ import Header from '../Components/Header';
 import MusicCard from '../Components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   state = {
     musics: [],
     collection: [],
     loading: false,
+    favoriteMusics: [],
   }
 
   componentDidMount = async () => {
     this.pushMusic();
+    const { favoriteMusics } = this.state;
+    this.setState({ loading: true });
+    const favorite = await getFavoriteSongs();
+    this.setState({ favoriteMusics: [...favorite], loading: false });
+    return favoriteMusics;
+  }
+
+  handleFavorite = (music) => {
+    const { favoriteMusics } = this.state;
+    return (favoriteMusics.some((song) => song.trackId === music.trackId));
   }
 
   pushMusic = async () => {
@@ -46,7 +58,7 @@ class Album extends React.Component {
         <div>
           {collection.map((music, index) => (
             <div key={ index }>
-              <MusicCard music={ music } />
+              <MusicCard music={ music } Favorite={ this.handleFavorite(music) } />
             </div>
           ))}
         </div>
