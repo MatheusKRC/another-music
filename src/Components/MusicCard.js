@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../pages/Loading';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends React.Component {
   state = {
@@ -17,19 +17,25 @@ class MusicCard extends React.Component {
     return test;
   }
 
-  handlefavorited = ({ target }) => {
+  handlefavorited = async () => {
     const { musicName } = this.props;
     const music = { musicName };
-    this.setState({ favorite: target.checked, loading: true }, async () => {
+    const { loading } = this.state;
+    this.setState({ loading: true });
+    if (loading) {
       await addSong(music);
       getFavoriteSongs();
-      this.setState({ loading: false });
-    });
+      this.setState({ loading: false, favorite: true });
+    } else {
+      await removeSong(music);
+      getFavoriteSongs();
+      this.setState({ loading: false, favorite: false });
+    }
   }
 
   render() {
     const { music } = this.props;
-    const { previewUrl, trackId, trackName, isFavorite } = music;
+    const { previewUrl, trackId, trackName } = music;
     const { loading, favorite } = this.state;
     return (
       <div>
@@ -44,7 +50,7 @@ class MusicCard extends React.Component {
         </audio>
         <input
           type="checkbox"
-          defaultChecked={ isFavorite || favorite }
+          checked={ favorite }
           data-testid={ `checkbox-music-${trackId}` }
           onChange={ this.handlefavorited }
         />
