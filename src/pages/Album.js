@@ -11,33 +11,26 @@ class Album extends React.Component {
     musics: [],
     collection: [],
     loading: false,
-    favoriteMusics: [],
+    favoriteMusics: '',
   }
 
   componentDidMount = async () => {
     this.pushMusic();
-    const { favoriteMusics } = this.state;
-    this.setState({ loading: true });
-    const favorite = await getFavoriteSongs();
-    this.setState({ favoriteMusics: [...favorite], loading: false });
-    return favoriteMusics;
-  }
-
-  handleFavorite = (music) => {
-    const { favoriteMusics } = this.state;
-    return (favoriteMusics.some((song) => song.trackId === music.trackId));
   }
 
   pushMusic = async () => {
     const { match: { params: { id } } } = this.props;
     const pushMusics = await getMusics(id);
+    const getFavorite = await getFavoriteSongs();
     const listMusics = pushMusics.filter((_music, index) => index !== 0);
-    this.setState({ musics: pushMusics,
+    this.setState({
+      favoriteMusics: getFavorite,
+      musics: pushMusics,
       collection: listMusics });
   }
 
   render() {
-    const { collection, musics, loading } = this.state;
+    const { collection, musics, loading, favoriteMusics } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -58,7 +51,12 @@ class Album extends React.Component {
         <div>
           {collection.map((music, index) => (
             <div key={ index }>
-              <MusicCard music={ music } Favorite={ this.handleFavorite(music) } />
+              <MusicCard
+                music={ music }
+                favoriteMusics={
+                  favoriteMusics.find((song) => song.trackName === music.trackName)
+                }
+              />
             </div>
           ))}
         </div>
