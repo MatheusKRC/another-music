@@ -16,7 +16,7 @@ class MusicCard extends React.Component {
   }
 
   handlefavorited = async ({ target: { checked } }) => {
-    const { music, update } = this.props;
+    const { music } = this.props;
     const { trackId } = music;
 
     this.setState({ loading: true, favorite: checked });
@@ -24,7 +24,6 @@ class MusicCard extends React.Component {
       await addSong(await getMusics(trackId));
     } else {
       await removeSong(await getMusics(trackId));
-      update();
     }
     this.setState({ loading: false });
   }
@@ -53,7 +52,6 @@ class MusicCard extends React.Component {
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
-          {' '}
           <code>audio</code>
           .
         </audio>
@@ -85,5 +83,4 @@ MusicCard.propTypes = {
     favorite: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
   favoriteMusics: PropTypes.bool.isRequired,
-  update: PropTypes.func.isRequired,
 };
