@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import anotherMusic from '../Images/AnotherMusic.png';
+import Another from '../Images/Another.png';
 
 class Login extends React.Component {
   state = {
@@ -30,11 +32,14 @@ class Login extends React.Component {
   render() {
     const { loading, user, loaded } = this.state;
     return (
-      <div>
+      <div className="loginPage">
+        <img alt="Efeitos de Som" src={ Another } />
         {loaded && <Redirect to="/search" />}
         {loading ? (<Loading />) : (
-          <div data-testid="page-login">
+          <div className="login" data-testid="page-login">
+            <img src={ anotherMusic } alt="logo do site" />
             <input
+              className="inputName"
               name="user"
               data-testid="login-name-input"
               type="text"
@@ -43,6 +48,7 @@ class Login extends React.Component {
             />
 
             <button
+              className="loginButton"
               type="button"
               data-testid="login-submit-button"
               disabled={ user.length <= 2 }
@@ -53,7 +59,7 @@ class Login extends React.Component {
             </button>
 
           </div>) }
-
+        <img alt="Efeitos de Som" src={ Another } />
       </div>
 
     );
