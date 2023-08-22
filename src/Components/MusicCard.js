@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../pages/Loading';
-import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 
 class MusicCard extends React.Component {
@@ -21,24 +21,15 @@ class MusicCard extends React.Component {
 
     this.setState({ loading: true, favorite: checked });
     if (checked) {
-      await addSong(await getMusics(trackId));
+      const musicToSave = await getMusics(trackId);
+      console.log(musicToSave[0]);
+      await addSong(musicToSave[0]);
     } else {
-      await removeSong(await getMusics(trackId));
+      console.log('removed');
+      const musicToRemove = await getMusics(trackId);
+      await removeSong(musicToRemove[0]);
     }
     this.setState({ loading: false });
-  }
-
-  getFavoriteMusic = async () => {
-    const { favoriteMusics } = this.state;
-    this.setState({ loading: true });
-    const favorite = await getFavoriteSongs();
-    this.setState({ favoriteMusics: favorite, loading: false });
-    return favoriteMusics;
-  }
-
-  handleFavorite = () => {
-    const { favoriteMusics } = this.props;
-    this.setState({ favorite: favoriteMusics });
   }
 
   render() {
@@ -55,10 +46,10 @@ class MusicCard extends React.Component {
           <code>audio</code>
           .
         </audio>
-        <label htmlFor="fav">
+        <label htmlFor={ `fav${trackName}` }>
 
           <input
-            id="fav"
+            id={ `fav${trackName}` }
             name="fav"
             type="checkbox"
             checked={ favorite }

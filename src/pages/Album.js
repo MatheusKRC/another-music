@@ -11,7 +11,7 @@ class Album extends React.Component {
     musics: [],
     collection: [],
     loading: false,
-    favoriteMusics: '',
+    favoriteMusics: [],
   }
 
   componentDidMount = async () => {
