@@ -1,0 +1,48 @@
+.searchForm {
+    display: flex;
+
+    justify-content: center;
+
+    margin: auto;
+}
+
+.searchInput {
+    width: 500px;
+    padding: 12px 16px;
+
+    border-radius: 5px;
+    border: 0px;
+
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.searchButton {
+    width: 100px;
+    border: 0;
+
+    border-radius: 5px;
+
+    background-color: #FF66C4;
+    color: white;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.searchButton:hover {
+    filter: opacity(60%);
+}
+
+.searchButton:active {
+    transform: translate(1px, 1px);
+}
+
+.nothing {
+    text-align: center;
+
+    margin-top: 200px;
+
+    color: white;
+}

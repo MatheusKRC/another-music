@@ -39,16 +39,18 @@ class Search extends React.Component {
       <div data-testid="page-search">
         <Header />
         {loading ? (<Loading />) : (
-          <form>
+          <form className="searchForm">
             <input
               name="artist"
               type="text"
+              className="searchInput"
               value={ artist }
               placeholder="Nome Do Artista"
               data-testid="search-artist-input"
               onChange={ this.handleChange }
             />
             <button
+              className="searchButton"
               data-testid="search-artist-button"
               type="button"
               disabled={ artist.length <= 1 }
@@ -59,30 +61,33 @@ class Search extends React.Component {
             </button>
           </form>)}
         {albuns.length !== 0 ? (
-          <div>
-            <p>{ `Resultado de álbuns de: ${artistName}`}</p>
+          <div className="allAlbuns">
+            {/* <div>
+              <p>{ `Resultado de álbuns de: ${artistName}`}</p>
+
+            </div> */}
 
             {albuns.map((music, index) => (
-              <main key={ index }>
+              <Link
+                key={ music.collectionId }
+                data-testid={ `link-to-album-${music.collectionId}` }
+                to={ `/album/${music.collectionId}` }
+              >
+                <main className="albuns" key={ index }>
 
-                <h2>{music.collectionName}</h2>
-                <h3>{music.artistName}</h3>
-
-                <Link
-                  key={ music.collectionId }
-                  data-testid={ `link-to-album-${music.collectionId}` }
-                  to={ `/album/${music.collectionId}` }
-                >
                   <img
+                    className="albumImage"
                     src={ music.artworkUrl100 }
                     alt={ music.collectionName }
                   />
 
-                </Link>
+                  <h3 className="albumTitle">{music.collectionName}</h3>
+                  <h3 className="artist">{music.artistName}</h3>
 
-              </main>
+                </main>
+              </Link>
             ))}
-          </div>) : (<h1>Nenhum álbum foi encontrado</h1>)}
+          </div>) : (<h1 className="nothing">Nenhum álbum foi encontrado</h1>)}
 
       </div>
     );

@@ -1,0 +1,92 @@
+html {
+    border: 0;
+    margin: 0;
+}
+
+.divName {
+    display: flex;
+
+    justify-content: end;
+}
+
+.test {
+    position: absolute;
+}
+
+.imgIcon {
+    height: 30px;
+    position: relative;
+
+    margin-right: -40px;
+    margin-top: 25px;
+}
+
+.imgLogo {
+    position: relative;
+
+    bottom: 25px;
+
+    max-height: 140px;
+}
+
+.username {
+    margin: 0;
+
+    margin-bottom: 3%;
+    margin-top: 20px;
+    margin-right: 20px;
+
+    background-color: white;
+
+    width: 300px;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    border-radius: 30px;
+}
+
+header {
+    background-color: #3B05A7;
+
+    height: 120px;
+
+    margin-bottom: 150px;
+}
+
+.headerButtons {
+    background-color: white;
+
+    display: inline-block;
+
+    width: 33.33%;
+    height: 60px;
+
+    border: 0;
+    border-right: solid 2px rgba(65, 0, 0, 0.101);
+
+    transition: 0.3s;
+
+    margin-top: -30px;
+
+    color: #FF66C4;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    /* margin-top: 20px; */
+}
+
+.headerButtons:hover {
+    background-color: #8C52FF;
+    color: white;
+
+    filter: saturate(80%);
+}
+
+.headerButtons:active {
+    filter: blur(0.5px);
+}
