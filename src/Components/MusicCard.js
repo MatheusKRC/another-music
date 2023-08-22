@@ -22,10 +22,8 @@ class MusicCard extends React.Component {
     this.setState({ loading: true, favorite: checked });
     if (checked) {
       const musicToSave = await getMusics(trackId);
-      console.log(musicToSave[0]);
       await addSong(musicToSave[0]);
     } else {
-      console.log('removed');
       const musicToRemove = await getMusics(trackId);
       await removeSong(musicToRemove[0]);
     }
@@ -70,8 +68,13 @@ MusicCard.propTypes = {
   music: PropTypes.shape({
     trackName: PropTypes.string.isRequired,
     previewUrl: PropTypes.string.isRequired,
-    trackId: PropTypes.string.isRequired,
-    favorite: PropTypes.arrayOf(PropTypes.string).isRequired,
+    trackId: PropTypes.number.isRequired,
+    favorite: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
-  favoriteMusics: PropTypes.bool.isRequired,
+  favoriteMusics: PropTypes.shape({
+    wrapperType: PropTypes.string.isRequired,
+    kind: PropTypes.string.isRequired,
+    artistId: PropTypes.number.isRequired,
+    collectionId: PropTypes.number.isRequired,
+  }).isRequired,
 };
