@@ -4,6 +4,11 @@ html {
 
 }
 
+.loading {
+    color: white;
+    margin-top: 0;
+}
+
 .divName {
     display: flex;
 

@@ -28,14 +28,21 @@ class Header extends React.Component {
           {loading ? (<Loading />) : (
             <div className="navBar">
               <div className="test">
-                <img className="imgLogo" src={ logo } alt="Icon" />
-              </div>
-              <div className="divName">
+                <Link to="/search">
+                  <img className="imgLogo" src={ logo } alt="Icon" />
 
-                <img className="imgIcon" src={ icon } alt="Icon" />
-                <h3 className="username" data-testid="header-user-name">{user}</h3>
+                </Link>
 
               </div>
+              <Link to="/profile">
+                <div className="divName">
+
+                  <img className="imgIcon" src={ icon } alt="Icon" />
+                  <h3 className="username" data-testid="header-user-name">{user}</h3>
+
+                </div>
+
+              </Link>
 
               <Link data-testid="link-to-search" to="/search">
                 <button className="headerButtons" type="button">Search</button>
