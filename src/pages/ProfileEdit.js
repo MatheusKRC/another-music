@@ -55,54 +55,51 @@ class ProfileEdit extends React.Component {
   }
 
   render() {
-    const { loading, disabled, name, email, image, description } = this.state;
+    const { loading, disabled, name, email, description } = this.state;
     return (
       <>
         <Header />
         <div data-testid="page-profile-edit">
           { loading ? <Loading /> : (
-            <form>
-
+            <form className="editProfile">
+              Nome
               <input
                 type="text"
+                className="editInput"
                 name="name"
                 value={ name }
                 data-testid="edit-input-name"
                 onChange={ this.handleChange }
               />
-
+              E-mail
               <input
                 type="email"
+                className="editInput"
                 name="email"
                 value={ email }
                 data-testid="edit-input-email"
                 onChange={ this.handleChange }
               />
-
+              Descrição
               <input
                 type="text"
+                className="editInput"
                 name="description"
                 value={ description }
                 data-testid="edit-input-description"
                 onChange={ this.handleChange }
               />
 
-              <input
-                type="text"
-                name="image"
-                value={ image }
-                data-testid="edit-input-image"
-                onChange={ this.handleChange }
-              />
-
               <button
                 type="button"
+                className="profileEdit"
                 data-testid="edit-button-save"
                 disabled={ disabled }
                 onClick={ this.handleClick }
               >
                 Editar perfil
               </button>
+
             </form>
           ) }
         </div>

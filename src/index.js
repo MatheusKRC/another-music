@@ -7,6 +7,7 @@ import './CSS/search.css'
 import './CSS/albuns.css'
 import './CSS/album.css'
 import './CSS/musics.css'
+import './CSS/profile.css'
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 

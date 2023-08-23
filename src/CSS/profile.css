@@ -1,0 +1,129 @@
+.profile {
+    display: flex;
+
+    justify-content: center;
+
+    /* background-color: white; */
+}
+
+.profileCard {
+    width: 503px;
+    height: 600px;
+
+    border-radius: 10px;
+    background: #001822;
+    box-shadow: 0px 0px 10px 10px #8C52FF;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    align-content: space-between;
+
+    flex-direction: column;
+
+    color: #FF66C4;
+}
+
+.profileTitle {
+    font-size: 40px;
+    text-align: center;
+
+    background-color: white;
+    color: black;
+
+    width: 503px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    border-radius: 10px 10px 0px 0px;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.profileImage {
+    width: 300px;
+    height: 300px;
+
+    max-height: 800px;
+
+    margin-bottom: -20px;
+}
+
+.profileName {
+    font-size: 30px;
+
+    margin-bottom: -10px;
+}
+
+.profileEmail {
+    font-size: 20px;
+}
+
+.profileDesc {
+    font-size: 10px;
+
+    text-align: center;
+}
+
+.profileEdit {
+    width: 100px;
+    border: 0;
+
+    border-radius: 5px;
+
+    background-color: #FF66C4;
+    color: white;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+
+    text-align: center;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+}
+
+.profileEdit:hover {
+    filter: opacity(60%);
+}
+
+.profileEdit:active {
+    transform: translate(1px, 1px);
+}
+
+
+.editProfile {
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    /* justify-content: center; */
+
+    align-items: center;
+
+    border-radius: 10px;
+    background: #001822;
+    box-shadow: 0px 0px 10px 10px #8C52FF;
+
+    padding-top: 10px;
+}
+
+.editInput {
+    width: 30%;
+    padding: 12px 16px;
+
+    border-radius: 5px;
+    border: 0px;
+
+    margin-right: 10px;
+    font-size: 15px;
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
