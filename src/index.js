@@ -5,6 +5,8 @@ import './CSS/login.css'
 import './CSS/header.css'
 import './CSS/search.css'
 import './CSS/albuns.css'
+import './CSS/album.css'
+import './CSS/musics.css'
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 

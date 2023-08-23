@@ -1,12 +1,15 @@
 html {
     border: 0;
     margin: 0;
+
 }
 
 .divName {
     display: flex;
 
     justify-content: end;
+
+    margin-top: 0;
 }
 
 .test {

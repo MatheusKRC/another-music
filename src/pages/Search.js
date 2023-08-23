@@ -7,7 +7,6 @@ import Loading from './Loading';
 class Search extends React.Component {
   state = {
     artist: '',
-    artistName: '',
     albuns: [],
     loading: false,
   }
@@ -28,13 +27,12 @@ class Search extends React.Component {
     this.setState({
       albuns: search,
       artist: '',
-      artistName: artist,
       loading: false,
     });
   }
 
   render() {
-    const { artist, loading, artistName, albuns } = this.state;
+    const { artist, loading, albuns } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
@@ -62,10 +60,6 @@ class Search extends React.Component {
           </form>)}
         {albuns.length !== 0 ? (
           <div className="allAlbuns">
-            {/* <div>
-              <p>{ `Resultado de álbuns de: ${artistName}`}</p>
-
-            </div> */}
 
             {albuns.map((music, index) => (
               <Link

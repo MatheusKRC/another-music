@@ -27,22 +27,26 @@ class Favorites extends React.Component {
 
  render() {
    const { collection, loading } = this.state;
-
    return (
      <div data-testid="page-favorites">
        <Header />
        {loading ? <Loading /> : (
-         collection.map((music, index) => (
+         <div className="musicCards">
+           {collection.map((music, index) => (
 
-           <MusicCard
-             key={ index }
-             music={ music }
-             favoriteMusics={
-               collection.find((song) => song.trackName === music.trackName)
-             }
-           />
+             <div key={ index } className="musicCard">
+               <MusicCard
+                 key={ index }
+                 music={ music }
+                 favoriteMusics={
+                   collection.find((song) => song.trackName === music.trackName)
+                 }
+               />
+             </div>
 
-         ))
+           ))}
+         </div>
+
        )}
      </div>
    );

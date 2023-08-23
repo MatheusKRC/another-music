@@ -38,15 +38,21 @@ class MusicCard extends React.Component {
       <div>
         {loading && <Loading />}
         <h3>{trackName}</h3>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+        <audio
+          className="audioMusic"
+          data-testid="audio-component"
+          src={ previewUrl }
+          controls
+        >
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
           .
         </audio>
-        <label htmlFor={ `fav${trackName}` }>
+        <label className="favorite" htmlFor={ `fav${trackName}` }>
 
           <input
+            className="checkFav"
             id={ `fav${trackName}` }
             name="fav"
             type="checkbox"
