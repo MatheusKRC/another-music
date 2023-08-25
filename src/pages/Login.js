@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
 import anotherMusic from '../Images/AnotherMusic.png';
+import anotherMusicM from '../Images/AnotherMusicM.png';
 import Another from '../Images/Another.png';
 
 class Login extends React.Component {
@@ -33,11 +34,14 @@ class Login extends React.Component {
     const { loading, user, loaded } = this.state;
     return (
       <div className="loginPage">
-        <img alt="Efeitos de Som" src={ Another } />
+        <img alt="Efeitos de Som" className="mobile" src={ Another } />
         {loaded && <Redirect to="/search" />}
         {loading ? (<Loading />) : (
           <div className="login" data-testid="page-login">
-            <img src={ anotherMusic } alt="logo do site" />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={ anotherMusicM } />
+              <img src={ anotherMusic } alt="logo do site" />
+            </picture>
             <input
               className="inputName"
               name="user"
@@ -59,7 +63,7 @@ class Login extends React.Component {
             </button>
 
           </div>) }
-        <img alt="Efeitos de Som" src={ Another } />
+        <img className="mobile" alt="Efeitos de Som" src={ Another } />
       </div>
 
     );

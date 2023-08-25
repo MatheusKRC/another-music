@@ -6,11 +6,13 @@
     display: flex;
     margin-top: 180px;
     justify-content: space-around;
+    align-items: center;
 }
 
 .login {
     display: flex;
     flex-direction: column;
+   
     align-items: center;
 
     box-shadow: #8C52FF 0px 7px 100px 0px;
@@ -50,5 +52,24 @@
     transform: translate(2px, 2px);
 }
 
+@media screen and (max-height: 900px) {
+    .loginPage {
+        margin-top: 100px;
+    }
+}
 
+@media screen and (max-width: 480px) {
+    .loginPage {
+        flex-direction: column;
 
+        margin-top: 0px;
+    }
+
+    .inputName {
+        width: 200px;
+    }
+
+    .mobile {
+        width: 200px;
+    }
+}

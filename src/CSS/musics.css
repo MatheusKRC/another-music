@@ -35,3 +35,20 @@ html {
     box-shadow: 0 5px 40px 0 #8C52FF;;
 }
 
+
+@media screen and (max-width: 480px) {
+
+    .musicCard {
+        flex-direction: column;
+
+        padding-bottom: 13px;
+    }
+
+    .musicName {
+        text-align: center;
+    }
+
+    .checkFav {
+        margin-left: 110px;
+    }
+}

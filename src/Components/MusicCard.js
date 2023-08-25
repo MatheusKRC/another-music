@@ -37,7 +37,7 @@ class MusicCard extends React.Component {
     return (
       <div>
         {loading && <Loading />}
-        <h3>{trackName}</h3>
+        <h3 className="musicName">{trackName}</h3>
         <audio
           className="audioMusic"
           data-testid="audio-component"
