@@ -4,6 +4,8 @@
     justify-content: center;
 
     /* background-color: white; */
+
+    margin-bottom: 20px;
 }
 
 .profileCard {
@@ -126,4 +128,20 @@
 
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+@media screen and (max-height: 900px){
+    .profile {
+        margin-top: -80px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .profileCard {
+        width: 300px;
+    }
+
+    .profileTitle {
+        width: 300px;
+    }
 }

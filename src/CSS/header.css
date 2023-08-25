@@ -98,3 +98,32 @@ header {
 .headerButtons:active {
     filter: blur(0.5px);
 }
+
+@media screen and (max-width: 1420px){
+
+.imgLogo {
+    max-height: 120px;
+}
+}
+
+@media screen and (max-width: 940px){
+
+    .imgLogo {
+        position: relative;
+    
+        bottom: 15px;
+    
+        max-height: 100px;
+    }
+    
+    .headerButtons {
+
+        margin-top: 10px;
+    }
+    }
+
+@media screen and (max-width: 480px){
+    .username {
+        width: 230px;
+    }
+}

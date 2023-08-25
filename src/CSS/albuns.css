@@ -65,3 +65,11 @@ a {
 .albumImage {
     width: 130px;
 }
+
+@media screen and (max-width: 620px){
+    .allAlbuns {
+        justify-content: center;
+
+        min-width: 200px;
+    }
+}
